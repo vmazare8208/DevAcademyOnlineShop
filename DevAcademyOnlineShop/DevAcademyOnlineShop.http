@@ -1,0 +1,6 @@
+@DevAcademyOnlineShop_HostAddress = http://localhost:5012
+
+GET {{DevAcademyOnlineShop_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
