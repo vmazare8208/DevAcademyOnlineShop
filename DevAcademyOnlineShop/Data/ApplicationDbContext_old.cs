@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DevAcademyOnlineShop.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext_old : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ApplicationDbContext_old(DbContextOptions<ApplicationDbContext_old> options)
             : base(options) { }
 
         public DbSet<Product> Product { get; set; }

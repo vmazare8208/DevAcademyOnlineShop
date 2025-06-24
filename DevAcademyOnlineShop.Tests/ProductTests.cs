@@ -8,9 +8,9 @@ namespace DevAcademyOnlineShop.Tests
 {
     public class ProductTests
     {
-        private DbContextOptions<ApplicationDbContext> GetInMemoryOptions()
+        private DbContextOptions<ApplicationDbContext_old> GetInMemoryOptions()
         {
-            return new DbContextOptionsBuilder<ApplicationDbContext>()
+            return new DbContextOptionsBuilder<ApplicationDbContext_old>()
                 .UseInMemoryDatabase("TestDb")
                 .Options;
         }
@@ -20,13 +20,13 @@ namespace DevAcademyOnlineShop.Tests
         {
             var options = GetInMemoryOptions();
 
-            using (var _context = new ApplicationDbContext(options))
+            using (var _context = new ApplicationDbContext_old(options))
             {
                 _context.Product.Add(new Product { ProductName = "Test Product", ProductPrice = 9.99 });
                 _context.SaveChanges();
             }
 
-            using (var context = new ApplicationDbContext(options))
+            using (var context = new ApplicationDbContext_old(options))
             {
                 Assert.Equal(1, context.Product.Count());
                 Assert.Equal("Test Product", context.Product.Single().ProductName);
