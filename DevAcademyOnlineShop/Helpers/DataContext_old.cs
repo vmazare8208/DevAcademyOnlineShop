@@ -3,11 +3,11 @@
      using DevAcademyOnlineShop.View.Model.Models;
     using Microsoft.EntityFrameworkCore;
 
-    public class DataContext : DbContext
+    public class DataContext_old : DbContext
     {
         protected readonly IConfiguration Configuration;
 
-        public DataContext(IConfiguration configuration)
+        public DataContext_old(IConfiguration configuration)
         {
             Configuration = configuration;
         }
