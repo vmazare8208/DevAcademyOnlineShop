@@ -1,4 +1,5 @@
 ﻿using DevAcademyOnlineShop.Data;
+using DevAcademyOnlineShop.Helpers;
 using DevAcademyOnlineShop.View.Model.Models;
 using Microsoft.EntityFrameworkCore;
 using DevAcademyOnlineShop.Controllers;
@@ -8,9 +9,9 @@ namespace DevAcademyOnlineShop.Tests
 {
     public class ProductTests
     {
-        private DbContextOptions<ApplicationDbContext_old> GetInMemoryOptions()
+        private DbContextOptions<ApplicationDbContext> GetInMemoryOptions()
         {
-            return new DbContextOptionsBuilder<ApplicationDbContext_old>()
+            return new DbContextOptionsBuilder<ApplicationDbContext>()
                 .UseInMemoryDatabase("TestDb")
                 .Options;
         }
@@ -20,13 +21,13 @@ namespace DevAcademyOnlineShop.Tests
         {
             var options = GetInMemoryOptions();
 
-            using (var _context = new ApplicationDbContext_old(options))
+            using (var _context = new ApplicationDbContext(options))
             {
                 _context.Product.Add(new Product { ProductName = "Test Product", ProductPrice = 9.99 });
                 _context.SaveChanges();
             }
 
-            using (var context = new ApplicationDbContext_old(options))
+            using (var context = new ApplicationDbContext(options))
             {
                 Assert.Equal(1, context.Product.Count());
                 Assert.Equal("Test Product", context.Product.Single().ProductName);

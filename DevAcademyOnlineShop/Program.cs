@@ -13,6 +13,7 @@ builder.Services.AddOpenApi();
 
 ConfigureServiceExtensions.ConfigureServices(builder.Services);
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

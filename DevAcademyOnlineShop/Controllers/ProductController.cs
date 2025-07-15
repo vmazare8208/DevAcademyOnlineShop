@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using DevAcademyOnlineShop.View.Model.Models;
 using DevAcademyOnlineShop.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DevAcademyOnlineShop.Controllers
 {
-    public class ProductController
+    public class ProductController : ControllerBase
     {
         private readonly IMapper _mapper;
         public ProductController(IMapper mapper)
